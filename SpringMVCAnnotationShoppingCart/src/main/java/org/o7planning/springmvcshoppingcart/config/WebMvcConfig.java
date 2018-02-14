@@ -8,10 +8,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.o7planning.springmvcshoppingcart.view.*;
+
  
 @Configuration
 @EnableWebMvc
@@ -44,4 +50,12 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         configurer.enable();
     }
  
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        registry.jsp("/WEB-INF/pages/", ".jsp");
+        registry.enableContentNegotiation(
+        		new ItextPdfView()
+                // Use either ItextPdfView or LowagiePdfView
+                // new LowagiePdfView()
+        );
+    }
 }

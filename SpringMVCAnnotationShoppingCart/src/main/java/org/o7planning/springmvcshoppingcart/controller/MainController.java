@@ -244,14 +244,22 @@ public class MainController {
             return "shoppingCartConfirmation";
         }
         // Remove Cart In Session.
-        Utils.removeCartInSession(request);
+        //Utils.removeCartInSession(request);
          
         // Store Last ordered cart to Session.
         Utils.storeLastOrderedCartInSession(request, cartInfo);
  
         // Redirect to successful page.
         return "redirect:/shoppingCartFinalize";
+        //return "redirect:/shoppingCartFinalize";
     }
+    
+    @RequestMapping(value = { "/verPDF" }, method = RequestMethod.GET)
+    public String verPDF() {
+    	
+    	return "redirect:/.pdf";
+    }
+    
  
     @RequestMapping(value = { "/shoppingCartFinalize" }, method = RequestMethod.GET)
     public String shoppingCartFinalize(HttpServletRequest request, Model model) {

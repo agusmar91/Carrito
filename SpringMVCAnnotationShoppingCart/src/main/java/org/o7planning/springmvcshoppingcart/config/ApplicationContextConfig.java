@@ -11,6 +11,7 @@ import org.o7planning.springmvcshoppingcart.dao.ProductDAO;
 import org.o7planning.springmvcshoppingcart.dao.impl.AccountDAOImpl;
 import org.o7planning.springmvcshoppingcart.dao.impl.OrderDAOImpl;
 import org.o7planning.springmvcshoppingcart.dao.impl.ProductDAOImpl;
+import org.o7planning.springmvcshoppingcart.view.ItextPdfView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -50,6 +51,7 @@ public class ApplicationContextConfig {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/WEB-INF/pages/");
         viewResolver.setSuffix(".jsp");
+        new ItextPdfView();
         return viewResolver;
     }
      

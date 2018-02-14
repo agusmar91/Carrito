@@ -18,7 +18,7 @@
        <h3>Thank you for Order</h3>
        Your order number is: ${lastOrderedCart.orderNum}
    </div>
- 
+ 	<a href="verPDF" target="blank">Ver factura</a>
    <jsp:include page="_footer.jsp" />
  
 </body>
